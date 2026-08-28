@@ -1,0 +1,20 @@
+function gerarTabelaPotencias(inicio, fim, base)
+    for i = inicio, fim do
+        local res = base ^ i
+        print(base .. " ^ " .. i .. " = " .. res)
+    end
+end
+print("Digite o expoente inicial (M):")
+local M = tonumber(io.read())
+
+print("Digite o expoente final (N):")
+local N = tonumber(io.read())
+
+print("Digite a base:")
+local base = tonumber(io.read())
+
+if M and N and base then
+    gerarTabelaPotencias(M, N, base)
+else
+    print("Entrada invalida! Digite apenas numeros.")
+end
