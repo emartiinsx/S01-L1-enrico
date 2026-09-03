@@ -1,0 +1,48 @@
+use std::io;
+
+fn acertou_o_alvo(palpite: i32, numero_secreto: i32) -> bool {
+    let diferenca;
+
+    if palpite >= numero_secreto {
+        diferenca = palpite - numero_secreto;
+    } else {
+        diferenca = numero_secreto - palpite;
+    }
+
+    if diferenca <= 5 {
+        true
+    } else {
+        false
+    }
+}
+
+fn main() {
+    let numero_secreto: i32 = 13;
+
+    loop {
+        let mut entrada = String::new();
+
+        println!("Digite seu palpite:");
+        io::stdin().read_line(&mut entrada).expect("Erro ao ler");
+
+        let palpite: i32 = entrada.trim().parse().unwrap_or(0);
+
+        if acertou_o_alvo(palpite, numero_secreto) {
+            let distancia;
+
+            if palpite >= numero_secreto {
+                distancia = palpite - numero_secreto;
+            } else {
+                distancia = numero_secreto - palpite;
+            }
+
+            println!(
+                "Voce acertou! Ficou a apenas {} unidades do numero secreto!",
+                distancia
+            );
+            break;
+        } else {
+            println!("Voce passou longe! Tente novamente.");
+        }
+    }
+}
