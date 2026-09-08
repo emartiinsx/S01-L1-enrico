@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+func main() {
+	var v1, v2, v3 int
+
+	fmt.Print("Digite as vendas do 1 trimestre: ")
+	fmt.Scanln(&v1)
+	
+	fmt.Print("Digite as vendas do 2 trimestre: ")
+	fmt.Scanln(&v2)
+	
+	fmt.Print("Digite as vendas do 3 trimestre: ")
+	fmt.Scanln(&v3)
+
+	total := v1 + v2 + v3
+
+	if total < 100 {
+		fmt.Println("Meta minima anual nao atingida!")
+	} else {
+		fmt.Printf("Total de vendas: %d unidades\n", total)
+		switch {
+		case total >= 250:
+			fmt.Println("Classificacao: Categoria Top Seller")
+		case total >= 180 && total <= 249:
+			fmt.Println("Classificacao: Categoria Senior")
+		case total >= 100 && total <= 179:
+			fmt.Println("Classificacao: Categoria Pleno")
+		}
+	}
+}
